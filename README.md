@@ -40,7 +40,7 @@ Reemplazando:
 ```
 samba-tool group add groupName
 ```
-Reempalzando:
+Reemplazando:
 - groupName: por el nombre del grupo.
 
 ### Para agregar el usuario anteriormente creado al grupo.
