@@ -21,12 +21,12 @@ Por algún motivo si se cambia el -h addomain el contenedor no se inicializa de 
 
 ## Creación de un grupo y un usuario para testing.
 
-Comando para ingresar al contenedor y utilizar la herramienta samba-tool.
+### Comando para ingresar al contenedor y utilizar la herramienta samba-tool.
 ```
 docker exec -it addomain bash
 ```
 
-Para crear un usuario.
+### Para crear un usuario.
 ```
 samba-tool user create 'username' 'password' --given-name='givenName' --surname='surname'
 ```
@@ -36,14 +36,14 @@ Reemplazando:
 - given_name: por el primer nombre.
 - surname: por el apellido.
 
-Para crear un grupo.
+### Para crear un grupo.
 ```
 samba-tool group add groupName
 ```
 Reempalzando:
 - groupName: por el nombre del grupo.
 
-Para agregar el usuario anteriormente creado al grupo.
+### Para agregar el usuario anteriormente creado al grupo.
 ```
 samba-tool group addmembers groupName 'username'
 ```
