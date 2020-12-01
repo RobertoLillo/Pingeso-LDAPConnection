@@ -1,4 +1,6 @@
-# Pingeso-Nodejs-ldapConnection
+# Pingeso-LDAPConnection
+
+Prueba de conexión entre aplicación Nodejs y LDAP.
 
 ## Creación de contenedor con SAMBA 4
 
