@@ -1,0 +1,23 @@
+{
+  "name": "ldap-connection",
+  "version": "0.0.1",
+  "description": "Placeholder",
+  "main": "ldapConnection.js",
+  "dependencies": {
+    "ldapjs": "^2.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ldapConnection.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobertoLillo/Pingeso-Nodejs-LDAPConnection.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobertoLillo/Pingeso-Nodejs-LDAPConnection/issues"
+  },
+  "homepage": "https://github.com/RobertoLillo/Pingeso-Nodejs-LDAPConnection#readme"
+}
