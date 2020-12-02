@@ -1,6 +1,6 @@
 # Pingeso-LDAPConnection
 
-Prueba de conexión entre aplicación Nodejs y LDAP.
+Prueba de conexión entre aplicación Nodejs y SAMBA Active Directory.
 
 ## Creación de contenedor con SAMBA 4
 
@@ -52,3 +52,29 @@ samba-tool group addmembers groupName 'username'
 Reemplazando:
 - groupName: por el nombre del grupo recién creado.
 - username: por el nombre del usuario recién creado.
+
+## Funcionamiento ldapjs.
+
+| Concepto | Explicación |
+| :-------------: | ------------- |
+| URL | Correspondiente a SAMBA_HOST_IP. |
+| DC | Domain Controller, servidor de autenticación. Correspondiente a SAMBA_REALM. |
+| DN | Distinguished Name, dirección del usuario en el árbol. |
+| sAMAccountName | Nombre de cuenta del usuario creado en samba-tool. |
+| CN | Common Name, nombre del usuario. |
+| SN | Surname, apellido del usuario. |
+
+Los siguientes son los valores basados en el comando docker run de más arriba.
+```
+url = 'ldaps://10.0.2.15'
+DC = 'DC=samba,DC=lan'
+DN = 'CN=Administrator,CN=Users,DC=samba,DC=lan'
+Password = 'Pingeso1*'
+sAMAccountName = 'username'
+```
+### Funciones de ldapjs necesarias para la conexión.
+
+- **ldapjs.createClient({url:})** = Crea un cliente LDAP para conectarse al directorio. Requiere como mínimo la dirección del servidor.
+- **client.bind(dn, password, function (err, res))** =  Establece la conexión entre el cliente LDAP y el servidor.
+- **client.search(dc, options, function (err, res))** = Búsqueda de un usuario en el directorio, el nombre a buscar se incluye en **options**.
+- **client.unbind(function(err))** = Termina la conexión entre el cliente LDAP y el servidor.
