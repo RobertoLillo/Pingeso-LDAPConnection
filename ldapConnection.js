@@ -47,7 +47,6 @@ function searchUser(sAMAccountName) {
                     }
                 });
                 res.on('end', (result) => {
-                    console.log(`Search_Result: ${result.status}`);
                     client.destroy();
                     resolve(results);
                 });
@@ -57,9 +56,26 @@ function searchUser(sAMAccountName) {
 }
 
 async function search(name) {
+    const groups = [];
     const result = await searchUser(name);
-    console.log(result);
-    return result;
+    if (Array.isArray(result) && result.length) {
+        const obj = result[0];
+        if (Array.isArray(obj.memberOf)) {
+            for (let i = 0; i < obj.memberOf.length; i++) {
+                let group = obj.memberOf[i];
+                let splitted = group.split(",");
+                splitted = splitted[0].split("=");
+                groups.push(splitted[1]);
+            }
+        } else {
+            let splitted = obj.memberOf.split(",");
+            splitted = splitted[0].split("=");
+            groups.push(splitted[1]);
+        }
+    };
+    return groups;
 }
 
-search('roberto.lillo@usach.cl');
+search('roberto.lillo@usach.cl').then(result => console.log("RL: " + result));
+search('alan.barahona@usach.cl').then(result => console.log("AB: " + result));
+search('javier.perez@usach.cl').then(result => console.log("JP: " + result));
