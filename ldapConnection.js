@@ -76,6 +76,4 @@ async function search(name) {
     return groups;
 }
 
-search('roberto.lillo@usach.cl').then(result => console.log("RL: " + result));
-search('alan.barahona@usach.cl').then(result => console.log("AB: " + result));
-search('javier.perez@usach.cl').then(result => console.log("JP: " + result));
+exports.search = search;

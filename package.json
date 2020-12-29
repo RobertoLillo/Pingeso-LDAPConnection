@@ -2,13 +2,13 @@
   "name": "ldap-connection",
   "version": "0.0.1",
   "description": "Placeholder",
-  "main": "ldapConnection.js",
+  "main": "index.js",
   "dependencies": {
     "ldapjs": "^2.2.2"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node ldapConnection.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
